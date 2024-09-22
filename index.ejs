@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 16px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link href="/index.css" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+<div id="formcard">
+    <form action="/post" method="post">
+        <input style="font-size: 1.5rem;" type="text" name="value" required>
+        <button style="border-radius: 20%;" type="submit"><svg xmlns="http://www.w3.org/2000/svg" height="2rem" style="padding: 0.5rem;" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></button>
+    </form>
+</div>
+<div id="maindata">
+    <img src="hot-temperature.png" style="opacity: 0.7;" height="90rem" width="90rem" alt="pic" >
+    <h1><%if(locals.tempareture){ %>
+        <%= tempareture %> <sup>°</sup>C
+        <% } %>
+    </h1>
+    <h2><% if(locals.country){%>
+        <%= country %>
+        <% }else{%>
+            COUNTRY 
+            <%}%>
+            <!-- 7 -->
+
+    </h2>
+</div>
+<div id="secondarydata">
+    <div>
+        <div ><svg xmlns="http://www.w3.org/2000/svg" height="7rem" viewBox="0 -960 960 960" width="7rem" fill="#e8eaed"><path d="M480-100q-133 0-226.5-92T160-416q0-63 24.5-120.5T254-638l226-222 226 222q45 44 69.5 101.5T800-416q0 132-93.5 224T480-100Z"/></svg></div>
+        
+        <h3 style="text-align: center;">
+            <% if(locals.humidity){ %>
+            <%= humidity %>%</h3>
+            <% } %>
+    </div>
+    <div>
+        <div ><svg xmlns="http://www.w3.org/2000/svg" height="7rem" viewBox="0 -960 960 960" width="7rem" fill="#e8eaed"><path d="M460-160q-50 0-85-35t-35-85h80q0 17 11.5 28.5T460-240q17 0 28.5-11.5T500-280q0-17-11.5-28.5T460-320H80v-80h380q50 0 85 35t35 85q0 50-35 85t-85 35ZM80-560v-80h540q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43h-80q0-59 40.5-99.5T620-840q59 0 99.5 40.5T760-700q0 59-40.5 99.5T620-560H80Zm660 320v-80q26 0 43-17t17-43q0-26-17-43t-43-17H80v-80h660q59 0 99.5 40.5T880-380q0 59-40.5 99.5T740-240Z"/></svg></div>
+        <h3 style="text-align: center;">
+            <% if(locals.windspeed){ %>
+                <%= windspeed %>m/sec</h3>
+                <% } %>
+        </h3>
+    </div>
+</div>
+
+</div> 
+</body>
+</html>
